@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raio-X da Exportação — AXIA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300..650;1,9..144,300..650&display=swap');
+
+  :root{
+    --paper:#FCFAF5; --bone-50:#F8F5EE; --bone-100:#F1ECE1;
+    --ink-900:#0A1020; --ink-950:#05080F; --ink-850:#0D1526; --ink-800:#121B30; --ink-700:#1B2740;
+    --gold:#C9A24B; --gold-bright:#E3C377; --gold-deep:#7E6225; --gold-soft:rgba(201,162,75,.14);
+    --txt-dark:#EFEBE1; --txt-dark-muted:#A9B0C0;
+    --txt-light:#1A2233; --txt-light-muted:#525D74;
+    --line-l:rgba(26,34,51,.13); --line-d:rgba(239,235,225,.12);
+    --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--txt-light); font-family:var(--sans); line-height:1.65; font-size:16px; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 0 40px;}
+
+  .hero{position:relative; overflow:hidden; background:var(--ink-950); padding:38px 24px 44px;}
+  .hero-map{position:absolute; top:0; right:-40px; width:520px; max-width:70%; height:auto; opacity:.6; pointer-events:none;}
+  .hero-top{display:flex; align-items:center; gap:10px; margin-bottom:34px; position:relative; z-index:1;}
+  .hero-top .logo-mark{width:30px; height:25px; display:block;}
+  .hero-top .logo-word{font-family:var(--sans); font-weight:700; font-size:15px; letter-spacing:.14em; color:var(--txt-dark);}
+  .hero-top .logo-word sup{color:var(--gold); font-size:9px;}
+  .hero-grid{display:flex; align-items:flex-end; gap:24px; position:relative; z-index:1;}
+  .hero-copy{flex:1; min-width:0;}
+  .hero-eyebrow{display:flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--txt-dark-muted); margin-bottom:16px;}
+  .hero-eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--gold);}
+  .hero h1{font-family:var(--display); font-size:clamp(30px,6vw,42px); line-height:1.12; margin:0 0 16px; font-weight:600; letter-spacing:-.005em; color:var(--txt-dark);}
+  .hero h1 .accent{color:var(--gold-bright);}
+  .hero-sub{font-size:16.5px; color:var(--txt-dark-muted); max-width:46ch; margin:0;}
+  .container-art{flex-shrink:0; width:150px; height:auto;}
+  @media (max-width:620px){ .hero-grid{flex-direction:column; align-items:stretch;} .container-art{width:110px; align-self:flex-end;} .hero-map{opacity:.4;} }
+
+  .inner{padding:0 24px;}
+
+  .eyebrow{display:flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-deep); margin:36px 0 14px;}
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--gold);}
+
+  .lede{font-size:17.5px; color:var(--txt-light-muted); max-width:62ch; margin:0 0 40px;}
+  .lede strong{color:var(--txt-light); font-weight:700;}
+
+  .toc{background:var(--bone-50); border:1px solid var(--line-l); border-radius:12px; padding:22px 24px; margin-bottom:52px;}
+  .toc-title{font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--txt-light-muted); margin-bottom:14px;}
+  .toc ol{list-style:none; margin:0; padding:0; counter-reset:toc;}
+  .toc li{counter-increment:toc; display:flex; gap:12px; padding:9px 0; border-bottom:1px solid var(--line-l); font-size:14.5px;}
+  .toc li:last-child{border-bottom:none;}
+  .toc li::before{content:counter(toc,decimal-leading-zero); font-family:var(--sans); color:var(--gold-deep); font-size:13px; font-weight:700;}
+  .toc a{color:var(--txt-light); text-decoration:none; font-weight:500;}
+  .toc a:hover{color:var(--gold-deep);}
+
+  .part{margin:64px 0;}
+  .part-tag{font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:10px;}
+  h2{font-family:var(--display); font-size:26px; margin:0 0 20px; font-weight:600; letter-spacing:-.005em; color:var(--txt-light);}
+  p{margin:0 0 16px; color:var(--txt-light-muted);}
+  strong{color:var(--txt-light);}
+  .accent{color:var(--gold-deep);}
+
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:24px 0;}
+  .stat{background:var(--bone-50); border:1px solid var(--line-l); border-radius:10px; padding:18px 16px; text-align:center;}
+  .stat b{display:block; font-family:var(--display); font-size:28px; font-weight:600; color:var(--gold-deep); margin-bottom:4px;}
+  .stat span{font-size:12px; color:var(--txt-light-muted);}
+  @media (max-width:560px){ .stat-row{grid-template-columns:1fr;} }
+
+  .icon-row{display:flex; gap:0; margin:26px 0; background:var(--bone-50); border:1px solid var(--line-l); border-radius:12px; padding:20px 8px;}
+  .icon-item{flex:1; display:flex; flex-direction:column; align-items:flex-start; gap:8px; padding:0 16px; border-left:1px solid var(--line-l);}
+  .icon-item:first-child{border-left:none;}
+  .icon-item svg{width:26px; height:26px; stroke:var(--gold-deep); flex-shrink:0;}
+  .icon-item span{font-size:13px; color:var(--txt-light-muted); line-height:1.4;}
+  @media (max-width:560px){ .icon-row{flex-direction:column; gap:16px;} .icon-item{border-left:none; border-top:1px solid var(--line-l); padding-top:14px;} .icon-item:first-child{border-top:none; padding-top:0;} }
+
+  .tip{border-left:3px solid var(--gold); background:var(--gold-soft); border-radius:0 10px 10px 0; padding:14px 18px; margin:20px 0; font-size:14.5px; color:var(--txt-light);}
+
+  /* quiz */
+  .quiz{background:var(--bone-50); border:1px solid var(--line-l); border-radius:14px; padding:8px; margin:28px 0;}
+  .q{padding:22px 20px; border-bottom:1px solid var(--line-l);}
+  .q:last-of-type{border-bottom:none;}
+  .q-num{font-family:var(--sans); font-weight:600; color:var(--gold-deep); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; margin-bottom:8px;}
+  .q-text{font-size:16px; font-weight:700; margin-bottom:14px; color:var(--txt-light);}
+  .opt{display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:8px; cursor:pointer; margin-bottom:6px; border:1px solid var(--line-l); background:var(--paper); transition:background .15s,border-color .15s;}
+  .opt:hover{background:var(--bone-100);}
+  .opt.checked{background:var(--gold-soft); border-color:var(--gold);}
+  .opt input{margin-top:3px; accent-color:var(--gold-deep);}
+  .opt span{font-size:14.5px; color:var(--txt-light-muted);}
+
+  .result{position:sticky; bottom:16px; margin-top:20px; background:var(--ink-900); border-radius:14px; padding:22px 22px 20px; color:var(--txt-dark);}
+  .result-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
+  .result-label{font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--txt-dark-muted);}
+  .result-score{font-family:var(--sans); font-size:20px; color:var(--gold-bright); font-weight:700;}
+  .bar{height:6px; background:var(--ink-700); border-radius:4px; overflow:hidden; margin-bottom:14px;}
+  .bar-fill{height:100%; width:0%; background:var(--gold); transition:width .25s ease;}
+  .verdict{font-family:var(--display); font-size:16px; color:var(--txt-dark); font-weight:600; margin-bottom:4px;}
+  .verdict-sub{font-size:13.5px; color:var(--txt-dark-muted);}
+
+  .rule{display:flex; gap:14px; margin:14px 0; padding:16px 0; border-bottom:1px solid var(--line-l);}
+  .rule:last-child{border-bottom:none;}
+  .rule-num{font-family:var(--sans); color:var(--gold-deep); font-size:13px; font-weight:700; min-width:38px;}
+  .rule div div{color:var(--txt-light-muted); font-size:14.5px;}
+
+  .cta{margin-top:72px; background:var(--ink-950); border-radius:16px; padding:34px 30px; display:flex; gap:22px; align-items:center;}
+  .cta img.avatar{width:88px; height:88px; border-radius:50%; object-fit:cover; flex-shrink:0; border:2px solid var(--gold);}
+  .cta-body h3{font-family:var(--display); margin:0 0 8px; font-size:19px; font-weight:600; color:var(--txt-dark);}
+  .cta-body p{font-size:14.5px; color:var(--txt-dark-muted); margin:0 0 16px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--ink-950); font-weight:700; font-size:14.5px; padding:12px 22px; border-radius:999px; text-decoration:none;}
+  .btn::before{content:''; width:8px; height:8px; border-radius:50%; background:var(--ink-950);}
+  .ps{font-style:italic; color:var(--txt-dark-muted); font-size:13px; margin-top:14px;}
+  @media (max-width:560px){ .cta{flex-direction:column; align-items:flex-start;} }
+
+  footer{display:flex; justify-content:space-between; align-items:center; margin-top:48px; padding-top:20px; border-top:1px solid var(--line-l); font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--txt-light-muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <svg class="hero-map" viewBox="0 0 520 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g stroke="#1B2740" stroke-width="1">
+        <path d="M40 220 Q160 60 300 110 T480 60" stroke-dasharray="3 6"/>
+        <path d="M60 240 Q220 140 340 190 T500 130" stroke-dasharray="3 6"/>
+      </g>
+      <g fill="#C9A24B">
+        <circle cx="40" cy="220" r="3.5"/>
+        <circle cx="300" cy="110" r="3.5"/>
+        <circle cx="480" cy="60" r="3.5"/>
+        <circle cx="340" cy="190" r="3.5"/>
+        <circle cx="500" cy="130" r="3.5"/>
+      </g>
+    </svg>
+
+    <div class="hero-top">
+      <svg class="logo-mark" viewBox="140 100 740 605" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#E3C377" d="M283 393 L401 117 L472 290 L441 393 Z"/>
+        <path fill="#C9A24B" d="M424 117 L594 117 L866 690 L697 690 Z"/>
+        <path fill="#B08D3C" d="M267 413 L556 413 L622 551 L363 551 L311 690 L155 690 Z"/>
+      </svg>
+      <span class="logo-word">AXIA<sup>®</sup></span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-eyebrow"><span class="dot"></span>Material gratuito · Diagnóstico de Exportação</div>
+        <h1>Quase 40% das empresas que <span class="accent">exportam no Brasil</span> são micro e pequenas.</h1>
+        <p class="hero-sub">Elas respondem por menos de 1% do valor exportado. O gap não é de porte — é de estrutura.</p>
+      </div>
+      <svg class="container-art" viewBox="0 0 140 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="10" y="70" width="120" height="70" rx="3" fill="#C9A24B"/>
+        <g stroke="#7E6225" stroke-width="2">
+          <line x1="24" y1="70" x2="24" y2="140"/><line x1="38" y1="70" x2="38" y2="140"/>
+          <line x1="52" y1="70" x2="52" y2="140"/><line x1="66" y1="70" x2="66" y2="140"/>
+          <line x1="80" y1="70" x2="80" y2="140"/><line x1="94" y1="70" x2="94" y2="140"/>
+          <line x1="108" y1="70" x2="108" y2="140"/><line x1="122" y1="70" x2="122" y2="140"/>
+        </g>
+        <rect x="46" y="92" width="48" height="34" rx="2" fill="#FFFFFF" fill-opacity=".14" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="1.5"/>
+        <line x1="70" y1="92" x2="70" y2="126" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="1.5"/>
+        <rect x="10" y="30" width="120" height="34" rx="3" fill="#121B30"/>
+        <g stroke="#2A3652" stroke-width="2">
+          <line x1="24" y1="30" x2="24" y2="64"/><line x1="38" y1="30" x2="38" y2="64"/>
+          <line x1="52" y1="30" x2="52" y2="64"/><line x1="66" y1="30" x2="66" y2="64"/>
+          <line x1="80" y1="30" x2="80" y2="64"/><line x1="94" y1="30" x2="94" y2="64"/>
+          <line x1="108" y1="30" x2="108" y2="64"/><line x1="122" y1="30" x2="122" y2="64"/>
+        </g>
+        <rect x="6" y="140" width="128" height="6" rx="2" fill="#FFFFFF" fill-opacity=".08"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="inner">
+
+  <p class="lede">Este material tem o Export Readiness Score simplificado que eu uso com clientes: 5 perguntas pra você ter uma primeira leitura estruturada da prontidão exportadora da sua empresa.</p>
+
+  <div class="tip">Este é um Raio-X inicial de prontidão exportadora. O resultado não substitui um diagnóstico completo, mas ajuda a identificar os principais fundamentos e gaps da operação.</div>
+
+  <div class="toc">
+    <div class="toc-title">Neste material</div>
+    <ol>
+      <li><a href="#parte01">Por que o tamanho da empresa não é o problema</a></li>
+      <li><a href="#parte02">O Raio-X: 5 perguntas e sua pontuação</a></li>
+      <li><a href="#parte03">O que fazer com o resultado</a></li>
+    </ol>
+  </div>
+
+  <div class="part" id="parte01">
+    <div class="part-tag">Parte 01</div>
+    <h2>Por que o tamanho da empresa <span class="accent">não</span> é o problema</h2>
+    <p>A maioria das empresas brasileiras com produto competitivo nunca chega a exportar. O motivo raramente é o produto — é a falta de um diagnóstico real antes de qualquer decisão de mercado.</p>
+
+    <div class="stat-row">
+      <div class="stat"><b>&lt;1%</b><span>do valor exportado pelo Brasil vem de micro e pequenas empresas</span></div>
+      <div class="stat"><b>~40%</b><span>das empresas exportadoras brasileiras são micro ou pequenas</span></div>
+      <div class="stat"><b>~1%</b><span>das empresas brasileiras exporta, de qualquer porte</span></div>
+    </div>
+
+    <p>Na Itália, cerca de 47% do valor exportado pela indústria vem de micro, pequenas e médias empresas (dado Istat). No Brasil, esse número não passa de 1%. O gargalo não é o tamanho da operação. É nunca ter medido, com critério, o que falta antes de tentar.</p>
+
+    <div class="icon-row">
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h7v7"/></svg>
+        <span>Porte, sozinho, não determina prontidão exportadora</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>
+        <span>Critério objetivo, não achismo de porte</span>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s7 6 7 12a7 7 0 0 1-14 0c0-6 7-12 7-12z"/><circle cx="12" cy="14" r="2.2"/></svg>
+        <span>Produto, capacidade, estrutura e comprometimento pesam muito mais</span>
+      </div>
+    </div>
+
+    <div class="tip">O ICP real de quem exporta com estrutura não é "empresa gigante": é capacidade produtiva relevante, faturamento a partir de R$15 milhões e 15 ou mais funcionários. Bem mais acessível do que a maioria imagina.</div>
+  </div>
+
+  <div class="part" id="parte02">
+    <div class="part-tag">Parte 02</div>
+    <h2>O Raio-X: 5 perguntas e sua pontuação</h2>
+    <p>Responda com o que é verdade hoje, não com o que você gostaria que fosse. No fim, o placar mostra em qual fase sua operação está.</p>
+
+    <div class="quiz" id="quiz">
+      <div class="q" data-q="1">
+        <div class="q-num">Pergunta 1 de 5 · Capacidade produtiva</div>
+        <div class="q-text">Sua empresa possui capacidade produtiva disponível — ou capacidade real de expansão — para atender novos clientes sem comprometer a operação atual?</div>
+        <label class="opt"><input type="radio" name="q1" value="2"><span>Sim, tenho capacidade disponível ou consigo expandir sem comprometer a operação atual</span></label>
+        <label class="opt"><input type="radio" name="q1" value="1"><span>Com limitações relevantes — dependeria de ajustes ou investimentos pra sustentar</span></label>
+        <label class="opt"><input type="radio" name="q1" value="0"><span>Não, hoje não teria como atender sem comprometer a operação</span></label>
+      </div>
+      <div class="q" data-q="2">
+        <div class="q-num">Pergunta 2 de 5 · Produto e consistência operacional</div>
+        <div class="q-text">Seu produto possui qualidade, padronização e documentação técnica consistentes para ser avaliado por compradores e mercados internacionais?</div>
+        <label class="opt"><input type="radio" name="q2" value="2"><span>Sim, o produto já está padronizado e documentado nesse nível</span></label>
+        <label class="opt"><input type="radio" name="q2" value="1"><span>Parcialmente — existe padronização, mas a documentação técnica ainda é limitada</span></label>
+        <label class="opt"><input type="radio" name="q2" value="0"><span>Ainda não — não temos esse nível de padronização e documentação</span></label>
+      </div>
+      <div class="q" data-q="3">
+        <div class="q-num">Pergunta 3 de 5 · Base econômica</div>
+        <div class="q-text">Sua empresa conhece bem seus custos, margens e limites comerciais a ponto de avaliar a viabilidade de uma oportunidade internacional?</div>
+        <label class="opt"><input type="radio" name="q3" value="2"><span>Sim, temos clareza de custos, margens e limites pra avaliar isso</span></label>
+        <label class="opt"><input type="radio" name="q3" value="1"><span>Parcialmente — temos uma noção, mas não o suficiente pra decidir com segurança</span></label>
+        <label class="opt"><input type="radio" name="q3" value="0"><span>Não temos clareza suficiente sobre isso hoje</span></label>
+      </div>
+      <div class="q" data-q="4">
+        <div class="q-num">Pergunta 4 de 5 · Capacidade de adaptação</div>
+        <div class="q-text">Sua empresa tem disposição e capacidade para adaptar produto, embalagem, documentação ou condições comerciais quando um mercado internacional exigir?</div>
+        <label class="opt"><input type="radio" name="q4" value="2"><span>Sim, topamos adaptar quando houver viabilidade comercial</span></label>
+        <label class="opt"><input type="radio" name="q4" value="1"><span>Depende da adaptação e do investimento necessário</span></label>
+        <label class="opt"><input type="radio" name="q4" value="0"><span>Baixa disposição ou capacidade pra esse tipo de adaptação hoje</span></label>
+      </div>
+      <div class="q" data-q="5">
+        <div class="q-num">Pergunta 5 de 5 · Compromisso da liderança</div>
+        <div class="q-text">A expansão internacional é uma prioridade real da liderança, com disposição para dedicar tempo, recursos e continuidade ao projeto?</div>
+        <label class="opt"><input type="radio" name="q5" value="2"><span>Sim, existe decisão de avançar e disponibilidade pra investir na estruturação</span></label>
+        <label class="opt"><input type="radio" name="q5" value="1"><span>Existe interesse, mas ainda sem prioridade ou recursos definidos</span></label>
+        <label class="opt"><input type="radio" name="q5" value="0"><span>É apenas uma possibilidade em avaliação, por enquanto</span></label>
+      </div>
+
+      <div class="result">
+        <div class="result-top">
+          <span class="result-label">Seu placar</span>
+          <span class="result-score" id="scoreLabel">0 / 10</span>
+        </div>
+        <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+        <div class="verdict" id="verdictText">Responda as 5 perguntas acima pra ver seu resultado.</div>
+        <div class="verdict-sub" id="verdictSub">Nenhuma resposta é errada — é um retrato de onde você está hoje.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part" id="parte03">
+    <div class="part-tag">Parte 03</div>
+    <h2>O que fazer com o resultado</h2>
+
+    <div class="rule">
+      <div class="rule-num">0–3</div>
+      <div><strong>Fortaleça os fundamentos antes de acelerar.</strong><br><div>Existem fundamentos importantes que precisam ser fortalecidos antes de acelerar um projeto de internacionalização.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rule-num">4–7</div>
+      <div><strong>Parte da base já existe.</strong><br><div>A empresa já apresenta parte dos fundamentos necessários, mas existem pontos que precisam ser avaliados e estruturados.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rule-num">8–10</div>
+      <div><strong>Fundamentos sólidos para estruturar.</strong><br><div>A empresa apresenta fundamentos sólidos para estruturar uma operação internacional. O próximo passo é transformar essa base em estratégia e execução.</div></div>
+    </div>
+
+    <p><strong>Porte, sozinho, não determina prontidão exportadora.</strong> Produto, capacidade, estrutura e comprometimento pesam muito mais.</p>
+  </div>
+
+  <div class="cta">
+    <img class="avatar" src="leandro-pietro.png" alt="Leandro Di Pietro">
+    <div class="cta-body">
+      <h3 id="ctaTitle">Leandro Di Pietro — AXIA</h3>
+      <p id="ctaText">Na AXIA, o diagnóstico é apenas o início. Quando existe aderência, atuo na estruturação e na execução comercial da expansão internacional, como Diretor Comercial de Exportação Fracionado.</p>
+      <a class="btn" href="https://cal.com/leandro-di-pietro/60min" target="_blank" rel="noopener" id="ctaLink">Marcar uma conversa com o Leandro</a>
+      <div class="ps">PS.: Funciona pra empresas com capacidade produtiva relevante, mesmo que ainda não tenham estrutura comercial internacional madura.</div>
+    </div>
+  </div>
+
+  <footer>
+    <span>AXIA</span>
+    <span>Internacionalização e estruturação comercial B2B</span>
+  </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById('quiz');
+  var scoreLabel = document.getElementById('scoreLabel');
+  var barFill = document.getElementById('barFill');
+  var verdictText = document.getElementById('verdictText');
+  var verdictSub = document.getElementById('verdictSub');
+  var ctaTitle = document.getElementById('ctaTitle');
+  var ctaText = document.getElementById('ctaText');
+  var ctaLink = document.getElementById('ctaLink');
+
+  var verdicts = [
+    {max:3, title:'Fortaleça os fundamentos antes de acelerar.', sub:'Existem fundamentos importantes que precisam ser fortalecidos antes de acelerar um projeto de internacionalização.',
+      ctaTitle:'Antes de acelerar, vale fortalecer a base', ctaText:'Seu resultado mostra fundamentos que ainda precisam ser fortalecidos antes de um projeto de internacionalização. Fale com o Leandro pra entender, na prática, o que priorizar primeiro.', ctaBtn:'Entender o que fortalecer primeiro'},
+    {max:7, title:'Parte da base já existe.', sub:'A empresa já apresenta parte dos fundamentos necessários, mas existem pontos que precisam ser avaliados e estruturados.',
+      ctaTitle:'Você já tem parte da base pronta', ctaText:'Seu resultado mostra que parte dos fundamentos já existe — mas há pontos que precisam ser avaliados e estruturados. Esse é o momento de aprofundar isso com um diagnóstico real.', ctaBtn:'Aprofundar meu diagnóstico com o Leandro'},
+    {max:10, title:'Fundamentos sólidos para estruturar.', sub:'A empresa apresenta fundamentos sólidos para estruturar uma operação internacional. O próximo passo é transformar essa base em estratégia e execução.',
+      ctaTitle:'Sua empresa tem base para estruturar a operação', ctaText:'Seu resultado mostra fundamentos sólidos para uma operação internacional. Na AXIA, o diagnóstico é apenas o início: quando existe aderência, atuo na estruturação e execução comercial da expansão, como Diretor Comercial de Exportação Fracionado.', ctaBtn:'Conversar sobre mercado e estruturação'}
+  ];
+
+  var ctaDefault = {
+    title:'Leandro Di Pietro — AXIA',
+    text:'Na AXIA, o diagnóstico é apenas o início. Quando existe aderência, atuo na estruturação e na execução comercial da expansão internacional, como Diretor Comercial de Exportação Fracionado.',
+    btn:'Marcar uma conversa com o Leandro'
+  };
+
+  function update(){
+    var total = 0, answered = 0;
+    for (var i=1;i<=5;i++){
+      var checked = form.querySelector('input[name="q'+i+'"]:checked');
+      if (checked){ total += parseInt(checked.value,10); answered++; }
+    }
+    document.querySelectorAll('.opt').forEach(function(o){
+      var input = o.querySelector('input');
+      o.classList.toggle('checked', input.checked);
+    });
+    scoreLabel.textContent = total + ' / 10';
+    barFill.style.width = (total/10*100) + '%';
+    if (answered === 0){
+      verdictText.textContent = 'Responda as 5 perguntas acima pra ver seu resultado.';
+      verdictSub.textContent = 'Nenhuma resposta é errada — é um retrato de onde você está hoje.';
+      setCta(ctaDefault.title, ctaDefault.text, ctaDefault.btn);
+      return;
+    }
+    if (answered < 5){
+      verdictText.textContent = 'Faltam ' + (5-answered) + ' pergunta(s) pra fechar seu placar.';
+      verdictSub.textContent = 'Resultado parcial: ' + total + ' pontos até aqui.';
+      setCta(ctaDefault.title, ctaDefault.text, ctaDefault.btn);
+      return;
+    }
+    var v = verdicts.find(function(v){ return total <= v.max; }) || verdicts[verdicts.length-1];
+    verdictText.textContent = v.title;
+    verdictSub.textContent = v.sub;
+    setCta(v.ctaTitle, v.ctaText, v.ctaBtn);
+  }
+
+  function setCta(title, text, btn){
+    ctaTitle.textContent = title;
+    ctaText.textContent = text;
+    ctaLink.textContent = btn;
+  }
+
+  form.addEventListener('change', update);
+  update();
+})();
+</script>
+</body>
+</html>
