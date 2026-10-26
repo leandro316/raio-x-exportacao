@@ -89,7 +89,15 @@
   .opt input{margin-top:3px; accent-color:var(--gold-deep);}
   .opt span{font-size:14.5px; color:var(--txt-light-muted);}
 
-  .result{position:sticky; bottom:16px; margin-top:20px; background:var(--ink-900); border-radius:14px; padding:22px 22px 20px; color:var(--txt-dark);}
+  .rule-num.w{min-width:104px;}
+  .weak-title{font-family:var(--display); font-size:19px; font-weight:600; color:var(--txt-light); margin:26px 8px 12px;}
+  .weak-card{background:var(--paper); border:1px solid var(--line-l); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; padding:16px 18px; margin:10px 8px;}
+  .weak-card h4{font-family:var(--display); font-size:17px; margin:0 0 8px; color:var(--txt-light);}
+  .weak-card p{margin:0 0 8px; font-size:14.5px;}
+  .weak-card p:last-child{margin:0;}
+  .weak-card a, .rule a{color:var(--gold-deep); font-weight:600;}
+  .weak-ok{margin:20px 8px; border-left:3px solid var(--gold); background:var(--gold-soft); border-radius:0 10px 10px 0; padding:14px 18px; font-size:14.5px; color:var(--txt-light);}
+  .result{position:static; margin:20px 8px 0; margin-top:20px; background:var(--ink-900); border-radius:14px; padding:22px 22px 20px; color:var(--txt-dark);}
   .result-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
   .result-label{font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--txt-dark-muted);}
   .result-score{font-family:var(--sans); font-size:20px; color:var(--gold-bright); font-weight:700;}
@@ -172,7 +180,7 @@
 
   <div class="inner">
 
-  <p class="lede">Este material tem o Export Readiness Score simplificado que eu uso com clientes: 5 perguntas pra você ter uma primeira leitura estruturada da prontidão exportadora da sua empresa.</p>
+  <p class="lede">Este material tem o Export Readiness Score simplificado que eu uso com clientes: 5 perguntas pra você ter uma primeira leitura estruturada da prontidão exportadora da sua empresa. No fim, você vê o seu ponto mais fraco, o risco dele e a primeira ação.</p>
 
   <div class="tip">Este é um Raio-X inicial de prontidão exportadora. O resultado não substitui um diagnóstico completo, mas ajuda a identificar os principais fundamentos e gaps da operação.</div>
 
@@ -180,7 +188,7 @@
     <div class="toc-title">Neste material</div>
     <ol>
       <li><a href="#parte01">Por que o tamanho da empresa não é o problema</a></li>
-      <li><a href="#parte02">O Raio-X: 5 perguntas e sua pontuação</a></li>
+      <li><a href="#parte02">O Raio-X: 5 perguntas e o seu ponto mais fraco</a></li>
       <li><a href="#parte03">O que fazer com o resultado</a></li>
     </ol>
   </div>
@@ -218,44 +226,44 @@
 
   <div class="part" id="parte02">
     <div class="part-tag">Parte 02</div>
-    <h2>O Raio-X: 5 perguntas e sua pontuação</h2>
-    <p>Responda com o que é verdade hoje, não com o que você gostaria que fosse. No fim, o placar mostra em qual fase sua operação está.</p>
+    <h2>O Raio-X: 5 perguntas e o seu ponto mais fraco</h2>
+    <p>Responda com o que é verdade hoje, não com o que você gostaria que fosse. Cada resposta é um fato que você pode conferir na sua empresa, não uma opinião. No fim, o resultado mostra o seu ponto mais fraco.</p>
 
     <div class="quiz" id="quiz">
       <div class="q" data-q="1">
-        <div class="q-num">Pergunta 1 de 5 · Capacidade produtiva</div>
-        <div class="q-text">Sua empresa possui capacidade produtiva disponível — ou capacidade real de expansão — para atender novos clientes sem comprometer a operação atual?</div>
-        <label class="opt"><input type="radio" name="q1" value="2"><span>Sim, tenho capacidade disponível ou consigo expandir sem comprometer a operação atual</span></label>
-        <label class="opt"><input type="radio" name="q1" value="1"><span>Com limitações relevantes — dependeria de ajustes ou investimentos pra sustentar</span></label>
-        <label class="opt"><input type="radio" name="q1" value="0"><span>Não, hoje não teria como atender sem comprometer a operação</span></label>
+        <div class="q-num">Pergunta 1 de 5 · Capacidade</div>
+        <div class="q-text">Quanto você consegue produzir a mais por mês para um cliente novo, sem prejudicar os atuais?</div>
+        <label class="opt"><input type="radio" name="q1" value="2"><span>Sei o volume exato e consigo entregar sem mexer na operação</span></label>
+        <label class="opt"><input type="radio" name="q1" value="1"><span>Acho que há folga, mas nunca medi</span></label>
+        <label class="opt"><input type="radio" name="q1" value="0"><span>Não há folga hoje</span></label>
       </div>
       <div class="q" data-q="2">
-        <div class="q-num">Pergunta 2 de 5 · Produto e consistência operacional</div>
-        <div class="q-text">Seu produto possui qualidade, padronização e documentação técnica consistentes para ser avaliado por compradores e mercados internacionais?</div>
-        <label class="opt"><input type="radio" name="q2" value="2"><span>Sim, o produto já está padronizado e documentado nesse nível</span></label>
-        <label class="opt"><input type="radio" name="q2" value="1"><span>Parcialmente — existe padronização, mas a documentação técnica ainda é limitada</span></label>
-        <label class="opt"><input type="radio" name="q2" value="0"><span>Ainda não — não temos esse nível de padronização e documentação</span></label>
+        <div class="q-num">Pergunta 2 de 5 · Produto</div>
+        <div class="q-text">Se um comprador estrangeiro pedisse hoje a ficha técnica e as certificações do seu produto, em inglês:</div>
+        <label class="opt"><input type="radio" name="q2" value="2"><span>Envio em até uma semana</span></label>
+        <label class="opt"><input type="radio" name="q2" value="1"><span>Tenho em português, mas faltaria traduzir ou completar</span></label>
+        <label class="opt"><input type="radio" name="q2" value="0"><span>Não tenho esse material</span></label>
       </div>
       <div class="q" data-q="3">
-        <div class="q-num">Pergunta 3 de 5 · Base econômica</div>
-        <div class="q-text">Sua empresa conhece bem seus custos, margens e limites comerciais a ponto de avaliar a viabilidade de uma oportunidade internacional?</div>
-        <label class="opt"><input type="radio" name="q3" value="2"><span>Sim, temos clareza de custos, margens e limites pra avaliar isso</span></label>
-        <label class="opt"><input type="radio" name="q3" value="1"><span>Parcialmente — temos uma noção, mas não o suficiente pra decidir com segurança</span></label>
-        <label class="opt"><input type="radio" name="q3" value="0"><span>Não temos clareza suficiente sobre isso hoje</span></label>
+        <div class="q-num">Pergunta 3 de 5 · Custos</div>
+        <div class="q-text">Você sabe qual é o menor preço, em dólar, em que uma venda para o exterior ainda dá lucro?</div>
+        <label class="opt"><input type="radio" name="q3" value="2"><span>Sei, já considerando frete, tributos e prazo de recebimento</span></label>
+        <label class="opt"><input type="radio" name="q3" value="1"><span>Tenho uma ideia, sem esses custos</span></label>
+        <label class="opt"><input type="radio" name="q3" value="0"><span>Não sei</span></label>
       </div>
       <div class="q" data-q="4">
-        <div class="q-num">Pergunta 4 de 5 · Capacidade de adaptação</div>
-        <div class="q-text">Sua empresa tem disposição e capacidade para adaptar produto, embalagem, documentação ou condições comerciais quando um mercado internacional exigir?</div>
-        <label class="opt"><input type="radio" name="q4" value="2"><span>Sim, topamos adaptar quando houver viabilidade comercial</span></label>
-        <label class="opt"><input type="radio" name="q4" value="1"><span>Depende da adaptação e do investimento necessário</span></label>
-        <label class="opt"><input type="radio" name="q4" value="0"><span>Baixa disposição ou capacidade pra esse tipo de adaptação hoje</span></label>
+        <div class="q-num">Pergunta 4 de 5 · Adaptação</div>
+        <div class="q-text">Você já mudou embalagem, rótulo, lote ou prazo de pagamento para atender um cliente específico?</div>
+        <label class="opt"><input type="radio" name="q4" value="2"><span>Sim, e sei quanto custou</span></label>
+        <label class="opt"><input type="radio" name="q4" value="1"><span>Nunca precisei, mas faria se compensasse</span></label>
+        <label class="opt"><input type="radio" name="q4" value="0"><span>Não faria</span></label>
       </div>
       <div class="q" data-q="5">
-        <div class="q-num">Pergunta 5 de 5 · Compromisso da liderança</div>
-        <div class="q-text">A expansão internacional é uma prioridade real da liderança, com disposição para dedicar tempo, recursos e continuidade ao projeto?</div>
-        <label class="opt"><input type="radio" name="q5" value="2"><span>Sim, existe decisão de avançar e disponibilidade pra investir na estruturação</span></label>
-        <label class="opt"><input type="radio" name="q5" value="1"><span>Existe interesse, mas ainda sem prioridade ou recursos definidos</span></label>
-        <label class="opt"><input type="radio" name="q5" value="0"><span>É apenas uma possibilidade em avaliação, por enquanto</span></label>
+        <div class="q-num">Pergunta 5 de 5 · Liderança</div>
+        <div class="q-text">Quem cuida da expansão internacional na sua empresa?</div>
+        <label class="opt"><input type="radio" name="q5" value="2"><span>Uma pessoa definida, com tempo e orçamento</span></label>
+        <label class="opt"><input type="radio" name="q5" value="1"><span>A direção tem interesse, mas ninguém está responsável</span></label>
+        <label class="opt"><input type="radio" name="q5" value="0"><span>Ninguém, ainda é só uma ideia</span></label>
       </div>
 
       <div class="result">
@@ -267,26 +275,37 @@
         <div class="verdict" id="verdictText">Responda as 5 perguntas acima pra ver seu resultado.</div>
         <div class="verdict-sub" id="verdictSub">Nenhuma resposta é errada — é um retrato de onde você está hoje.</div>
       </div>
+      <div id="weak"></div>
     </div>
   </div>
 
   <div class="part" id="parte03">
     <div class="part-tag">Parte 03</div>
     <h2>O que fazer com o resultado</h2>
+    <p>A nota é só um resumo. O que importa é o pilar com a menor pontuação: ele mostra o risco que você corre e o que fazer primeiro. Estes são os cinco:</p>
 
     <div class="rule">
-      <div class="rule-num">0–3</div>
-      <div><strong>Fortaleça os fundamentos antes de acelerar.</strong><br><div>Existem fundamentos importantes que precisam ser fortalecidos antes de acelerar um projeto de internacionalização.</div></div>
+      <div class="rule-num w">Capacidade</div>
+      <div><strong>O risco:</strong> o primeiro pedido de exportação sai no esforço, mas o problema vem no segundo, quando o comprador espera o mesmo volume e prazo.<br><div><strong>A primeira ação:</strong> calcule quantas unidades por mês você pode destinar à exportação sem afetar os clientes atuais.</div></div>
     </div>
     <div class="rule">
-      <div class="rule-num">4–7</div>
-      <div><strong>Parte da base já existe.</strong><br><div>A empresa já apresenta parte dos fundamentos necessários, mas existem pontos que precisam ser avaliados e estruturados.</div></div>
+      <div class="rule-num w">Produto</div>
+      <div><strong>O risco:</strong> o comprador estrangeiro avalia a documentação antes de provar o produto, e muita empresa é descartada nessa etapa sem saber por quê.<br><div><strong>A primeira ação:</strong> confirme o NCM do produto e monte uma ficha técnica em inglês.</div></div>
     </div>
     <div class="rule">
-      <div class="rule-num">8–10</div>
-      <div><strong>Fundamentos sólidos para estruturar.</strong><br><div>A empresa apresenta fundamentos sólidos para estruturar uma operação internacional. O próximo passo é transformar essa base em estratégia e execução.</div></div>
+      <div class="rule-num w">Custos</div>
+      <div><strong>O risco:</strong> fechar um pedido com um preço que parece bom e descobrir, depois do embarque, que frete, tributos e prazo de recebimento levaram a margem.<br><div><strong>A primeira ação:</strong> calcule seu preço mínimo de exportação na nossa <a href="https://leandro316.github.io/calculadora-margem-exportacao/" target="_blank" rel="noopener">Calculadora de Margem</a>.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rule-num w">Adaptação</div>
+      <div><strong>O risco:</strong> decidir no meio da negociação o que pode mudar leva a ceder demais ou a perder o negócio.<br><div><strong>A primeira ação:</strong> liste o que pode mudar no produto e nas condições comerciais e o que não pode.</div></div>
+    </div>
+    <div class="rule">
+      <div class="rule-num w">Liderança</div>
+      <div><strong>O risco:</strong> sem responsável e sem orçamento, o projeto para no primeiro contratempo.<br><div><strong>A primeira ação:</strong> defina quem cuida do projeto e quantas horas por semana vai dedicar.</div></div>
     </div>
 
+    <div class="tip"><strong>Se você tirou 10:</strong> sua base está sólida. Nesse estágio, o erro mais caro é escolher mercado por intuição. O próximo passo é escolher com dados.</div>
     <p><strong>Porte, sozinho, não determina prontidão exportadora.</strong> Produto, capacidade, estrutura e comprometimento pesam muito mais.</p>
   </div>
 
@@ -315,9 +334,11 @@
   var barFill = document.getElementById('barFill');
   var verdictText = document.getElementById('verdictText');
   var verdictSub = document.getElementById('verdictSub');
+  var weakEl = document.getElementById('weak');
   var ctaTitle = document.getElementById('ctaTitle');
   var ctaText = document.getElementById('ctaText');
   var ctaLink = document.getElementById('ctaLink');
+  var PIL = [{"n": "Capacidade", "r": "o primeiro pedido de exportação sai no esforço, mas o problema vem no segundo, quando o comprador espera o mesmo volume e prazo.", "a": "calcule quantas unidades por mês você pode destinar à exportação sem afetar os clientes atuais."}, {"n": "Produto", "r": "o comprador estrangeiro avalia a documentação antes de provar o produto, e muita empresa é descartada nessa etapa sem saber por quê.", "a": "confirme o NCM do produto e monte uma ficha técnica em inglês."}, {"n": "Custos", "r": "fechar um pedido com um preço que parece bom e descobrir, depois do embarque, que frete, tributos e prazo de recebimento levaram a margem.", "a": "calcule seu preço mínimo de exportação na nossa <a href=\"https://leandro316.github.io/calculadora-margem-exportacao/\" target=\"_blank\" rel=\"noopener\">Calculadora de Margem</a>."}, {"n": "Adaptação", "r": "decidir no meio da negociação o que pode mudar leva a ceder demais ou a perder o negócio.", "a": "liste o que pode mudar no produto e nas condições comerciais e o que não pode."}, {"n": "Liderança", "r": "sem responsável e sem orçamento, o projeto para no primeiro contratempo.", "a": "defina quem cuida do projeto e quantas horas por semana vai dedicar."}];
 
   var verdicts = [
     {max:3, title:'Fortaleça os fundamentos antes de acelerar.', sub:'Existem fundamentos importantes que precisam ser fortalecidos antes de acelerar um projeto de internacionalização.',
@@ -334,18 +355,20 @@
     btn:'Marcar uma conversa com o Leandro'
   };
 
+  function setCta(title, text, btn){ ctaTitle.textContent = title; ctaText.textContent = text; ctaLink.textContent = btn; }
+
   function update(){
-    var total = 0, answered = 0;
+    var total = 0, answered = 0, scores = [];
     for (var i=1;i<=5;i++){
       var checked = form.querySelector('input[name="q'+i+'"]:checked');
-      if (checked){ total += parseInt(checked.value,10); answered++; }
+      if (checked){ var v = parseInt(checked.value,10); total += v; answered++; scores.push(v); } else { scores.push(null); }
     }
     document.querySelectorAll('.opt').forEach(function(o){
-      var input = o.querySelector('input');
-      o.classList.toggle('checked', input.checked);
+      o.classList.toggle('checked', o.querySelector('input').checked);
     });
     scoreLabel.textContent = total + ' / 10';
     barFill.style.width = (total/10*100) + '%';
+    weakEl.innerHTML = '';
     if (answered === 0){
       verdictText.textContent = 'Responda as 5 perguntas acima pra ver seu resultado.';
       verdictSub.textContent = 'Nenhuma resposta é errada — é um retrato de onde você está hoje.';
@@ -353,21 +376,32 @@
       return;
     }
     if (answered < 5){
-      verdictText.textContent = 'Faltam ' + (5-answered) + ' pergunta(s) pra fechar seu placar.';
+      verdictText.textContent = 'Faltam ' + (5-answered) + ' pergunta(s) pra fechar seu resultado.';
       verdictSub.textContent = 'Resultado parcial: ' + total + ' pontos até aqui.';
       setCta(ctaDefault.title, ctaDefault.text, ctaDefault.btn);
       return;
     }
-    var v = verdicts.find(function(v){ return total <= v.max; }) || verdicts[verdicts.length-1];
-    verdictText.textContent = v.title;
-    verdictSub.textContent = v.sub;
-    setCta(v.ctaTitle, v.ctaText, v.ctaBtn);
-  }
+    var vd = verdicts.find(function(x){ return total <= x.max; });
+    verdictText.textContent = total === 10 ? 'Sua base está sólida.' : vd.title;
+    verdictSub.textContent = total === 10 ? 'Nesse estágio, o erro mais caro é escolher mercado por intuição. O próximo passo é escolher com dados.' : vd.sub;
+    setCta(vd.ctaTitle, vd.ctaText, vd.ctaBtn);
 
-  function setCta(title, text, btn){
-    ctaTitle.textContent = title;
-    ctaText.textContent = text;
-    ctaLink.textContent = btn;
+    if (total === 10){
+      weakEl.innerHTML = '<div class="weak-ok"><strong>Sua base está sólida.</strong> Nesse estágio, o erro mais caro é escolher mercado por intuição. O próximo passo é escolher com dados.</div>';
+      return;
+    }
+    var min = Math.min.apply(null, scores);
+    var idx = [];
+    scores.forEach(function(s, k){ if (s === min) idx.push(k); });
+    var show = idx.slice(0, 2), rest = idx.slice(2);
+    var html = '<div class="weak-title">' + (show.length > 1 ? 'Seus pontos mais fracos' : 'Seu ponto mais fraco') + '</div>';
+    show.forEach(function(k){
+      html += '<div class="weak-card"><h4>' + PIL[k].n + '</h4><p><strong>O risco:</strong> ' + PIL[k].r + '</p><p><strong>A primeira ação:</strong> ' + PIL[k].a + '</p></div>';
+    });
+    if (rest.length){
+      html += '<div class="weak-ok">Também no mesmo nível: ' + rest.map(function(k){ return PIL[k].n; }).join(', ') + '. Comece pelos de cima.</div>';
+    }
+    weakEl.innerHTML = html;
   }
 
   form.addEventListener('change', update);
